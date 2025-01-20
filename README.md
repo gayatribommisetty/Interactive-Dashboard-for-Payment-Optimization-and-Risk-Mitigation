@@ -1,4 +1,5 @@
-**Project Title:** Interactive Dashboard for Payment Optimization and Risk Mitigation
+### **Project Title:** "Interactive Dashboard for Payment Optimization and Risk Mitigation"
+![Uploading Screenshot 2025-01-20 at 5.50.32 PM.png…]()
 
 ---
 
@@ -56,85 +57,39 @@ This dynamic and interactive dashboard centralizes data across regions, payment 
   - Improved decision-making through accessible and actionable insights.
   - Enhanced collaboration across teams with customized reports.
 
----
+### Methodology
 
-### **Key Features of the Dashboard**
+1. Data Collection and Integration
+   * Source: Multi-channel payment transaction data, including attributes like region, customer segment, payment method, transaction amount, fraud status, and processing fees.
+   * Tools Used: SQL for database management and querying.
+2. Data Cleaning and Preprocessing
+   * Handled missing and inconsistent data (e.g., TransactionAmount or ProcessingFee null values).
+   * Renamed columns and tables for easier reference.
+3. Data Analysis
+   * SQL Queries:Calculated revenue, profit, fraud rates, and processing fees.Segmented data by region, payment method, and customer type.
+   * Python:Performed statistical analysis and advanced computations (e.g., fraud pattern detection).Conducted time-series analysis for revenue trends.
+   * Power BI:Built interactive visualizations and dynamic reports.
+4. Key Metrics and Dimensions
+   * Revenue Metrics: Total Revenue, Monthly Revenue Trends, Revenue by Region/Segment.
+   * Fraud Metrics: Fraud Rates by Region, Payment Method, and Customer Segment.
+   * Profitability Metrics: Profit Margins, Cost-to-Revenue Ratios, Processing Fee Analysis.
+     
+### Metadata
+ * Dataset Attributes:
+     1. Transaction_ID: Unique identifier for each transaction.
+     2. Transaction_Amount: Monetary value of the transaction.
+     3. Revenue: Revenue generated from each transaction (calculated as TransactionAmount - ProcessingFee).
+     4. Profit: Profit per transaction after deducting fraud and processing fees.
+     5. ProcessingFee: Fee associated with processing the transaction.
+     6. FraudStatus: Binary indicator of whether the transaction is fraudulent (1 = Fraudulent, 0 = Non-Fraudulent).
+     7. PaymentMethod: Type of payment method used (e.g., Credit Card, PayPal, ACH Transfer).
+     8. Region: Geographical region of the transaction (e.g., Asia, North America).
+     9. CustomerSegment: Segment of the customer (e.g., Premium, Regular).
 
-#### **1. Dashboard Overview**
-
-The **Advanced Payment Transactions Dashboard**, created using Power BI, provides the following key insights:
-
-- **Revenue**: Total revenue is $271.22K, with Credit Cards contributing the highest revenue ($104K).
-- **Total Transactions**: 2,987 transactions analyzed, focused on Premium customers.
-- **Fraud Rate**: Overall fraud rate of 5.06%, with the highest fraud rate in Asia (6.5%).
-- **Profitability**: Total profit is $191.65K, with PayPal showing the highest profit margin (71.54%).
-
-#### **2. Visual Insights**
-
-- **Revenue by Payment Method**:
-  - Credit Cards and Debit Cards dominate revenue, contributing $104K and $85K, respectively.
-  - ACH Transfers contribute the lowest revenue ($27K), but they are cost-efficient.
-
-- **Fraud Rate by Region**:
-  - Asia (6.5%) and Africa (5.7%) are high-risk regions for fraud.
-  - South America (3.8%) has the lowest fraud rate.
-
-- **Customer Segmentation**:
-  - Premium customers accounted for all transactions in this analysis.
-  - Future iterations can incorporate Regular customers for comparative analysis.
-
-- **Interactive Maps**:
-  - Visualize revenue, profit, and fraud rates by region.
-  - Identify high-performing regions like North America and Europe for strategic focus.
-
----
-
-### **Methodology**
-
-#### **1. Data Collection and Integration**
-- **Source:** Multi-channel payment transaction data, including attributes like region, customer segment, payment method, transaction amount, fraud status, and processing fees.
-- **Tools Used:** SQL for database management and querying.
-
-#### **2. Data Cleaning and Preprocessing**
-- Handled missing and inconsistent data (e.g., `TransactionAmount` or `ProcessingFee` null values).
-- Renamed columns and tables for easier reference.
-
-#### **3. Data Analysis**
-- **SQL Queries:**
-  - Calculated revenue, profit, fraud rates, and processing fees.
-  - Segmented data by region, payment method, and customer type.
-- **Python:**
-  - Performed statistical analysis and advanced computations (e.g., fraud pattern detection).
-  - Conducted time-series analysis for revenue trends.
-- **Power BI:**
-  - Built interactive visualizations and dynamic reports.
-
-#### **4. Key Metrics and Dimensions**
-- **Revenue Metrics:** Total Revenue, Monthly Revenue Trends, Revenue by Region/Segment.
-- **Fraud Metrics:** Fraud Rates by Region, Payment Method, and Customer Segment.
-- **Profitability Metrics:** Profit Margins, Cost-to-Revenue Ratios, Processing Fee Analysis.
-
----
-
-### **Metadata**
-
-#### **Dataset Attributes:**
-- **Transaction_ID**: Unique identifier for each transaction.
-- **Transaction_Amount**: Monetary value of the transaction.
-- **Revenue**: Revenue generated from each transaction (calculated as `TransactionAmount - ProcessingFee`).
-- **Profit**: Profit per transaction after deducting fraud and processing fees.
-- **ProcessingFee**: Fee associated with processing the transaction.
-- **FraudStatus**: Binary indicator of whether the transaction is fraudulent (1 = Fraudulent, 0 = Non-Fraudulent).
-- **PaymentMethod**: Type of payment method used (e.g., Credit Card, PayPal, ACH Transfer).
-- **Region**: Geographical region of the transaction (e.g., Asia, North America).
-- **CustomerSegment**: Segment of the customer (e.g., Premium, Regular).
-
-#### **Data Summary:**
-- **Total Records**: 2,987 transactions.
-- **Regions Covered**: Asia, Africa, Europe, North America, South America.
-- **Payment Methods**: Credit Card, Debit Card, PayPal, ACH Transfer.
-
----
+ * Data Summary:
+   1. Total Records: 2,987 transactions.
+   2. Regions Covered: Asia, Africa, Europe, North America, South America.
+   3. Payment Methods: Credit Card, Debit Card, PayPal, ACH Transfer.
 
 ### **Use Case: Fraud Detection and Mitigation**
 
@@ -180,6 +135,75 @@ ORDER BY FraudRate DESC;
 - Implement machine learning models for anomaly detection based on transaction patterns.
 
 ---
+
+### **Use Case: Revenue Optimization**
+
+#### **Problem Statement:**
+Despite high transaction volumes, certain regions and payment methods underperform in revenue contribution. Identifying these inefficiencies is crucial for optimizing revenue streams.
+
+#### **Proposed Solution:**
+The dashboard provides detailed revenue and profit analyses by leveraging SQL queries and Power BI visualizations. These insights guide targeted strategies for boosting underperforming regions and payment methods.
+
+#### **SQL Query Implementation:**
+```sql
+-- Calculate total revenue and profit by region
+SELECT 
+    Region, 
+    ROUND(SUM(Revenue), 2) AS TotalRevenue, 
+    ROUND(SUM(Profit), 2) AS TotalProfit 
+FROM transactions 
+GROUP BY Region 
+ORDER BY TotalRevenue DESC;
+
+-- Calculate total revenue and profit by payment method
+SELECT 
+    PaymentMethod, 
+    ROUND(SUM(Revenue), 2) AS TotalRevenue, 
+    ROUND(SUM(Profit), 2) AS TotalProfit 
+FROM transactions 
+GROUP BY PaymentMethod 
+ORDER BY TotalRevenue DESC;
+```
+
+#### **Outcome:**
+- North America and Europe were identified as the top-performing regions, contributing $108K and $52K in revenue, respectively.
+- PayPal emerged as the most profitable payment method with a profit margin of 71.5%, followed closely by Debit Cards.
+- South America and Africa showed significant potential for growth, despite lower revenue contributions.
+
+#### **Resulting Actions:**
+- Increase PayPal adoption in underperforming regions to leverage its profitability.
+- Allocate marketing resources to South America and Africa to tap into growth opportunities.
+
+### **Key Features of the Dashboard**
+![WhatsApp Image 2025-01-18 at 09 10 40](https://github.com/user-attachments/assets/19f65fdb-bfb9-4544-9edc-e7949f3d7ffa)
+
+
+#### **1. Dashboard Overview**
+
+The **Advanced Payment Transactions Dashboard**, created using Power BI, provides the following key insights:
+
+- **Revenue**: Total revenue is $271.22K, with Credit Cards contributing the highest revenue ($104K).
+- **Total Transactions**: 2,987 transactions analyzed, focused on Premium customers.
+- **Fraud Rate**: Overall fraud rate of 5.06%, with the highest fraud rate in Asia (6.5%).
+- **Profitability**: Total profit is $191.65K, with PayPal showing the highest profit margin (71.54%).
+
+#### **2. Visual Insights**
+
+- **Revenue by Payment Method**:
+  - Credit Cards and Debit Cards dominate revenue, contributing $104K and $85K, respectively.
+  - ACH Transfers contribute the lowest revenue ($27K), but they are cost-efficient.
+
+- **Fraud Rate by Region**:
+  - Asia (6.5%) and Africa (5.7%) are high-risk regions for fraud.
+  - South America (3.8%) has the lowest fraud rate.
+
+- **Customer Segmentation**:
+  - Premium customers accounted for all transactions in this analysis.
+  - Future iterations can incorporate Regular customers for comparative analysis.
+
+- **Interactive Maps**:
+  - Visualize revenue, profit, and fraud rates by region.
+  - Identify high-performing regions like North America and Europe for strategic focus.
 
 ### **Strategic Recommendations**
 
