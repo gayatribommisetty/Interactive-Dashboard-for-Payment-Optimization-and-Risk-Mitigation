@@ -1,4 +1,4 @@
-### **Project Title:** "Interactive Dashboard for Payment Optimization and Risk Mitigation"
+##  ** "Interactive Dashboard for Payment Optimization and Risk Mitigation"
 <img width="843" alt="Screenshot 2025-01-20 at 5 50 32 PM" src="https://github.com/user-attachments/assets/6cf05280-6669-4fb0-9598-e0d7a78bb55c" />
 
 
