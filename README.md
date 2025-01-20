@@ -58,6 +58,8 @@ This dynamic and interactive dashboard centralizes data across regions, payment 
   - Improved decision-making through accessible and actionable insights.
   - Enhanced collaboration across teams with customized reports.
 
+---
+
 ### Methodology
 
 1. Data Collection and Integration
@@ -74,6 +76,8 @@ This dynamic and interactive dashboard centralizes data across regions, payment 
    * Revenue Metrics: Total Revenue, Monthly Revenue Trends, Revenue by Region/Segment.
    * Fraud Metrics: Fraud Rates by Region, Payment Method, and Customer Segment.
    * Profitability Metrics: Profit Margins, Cost-to-Revenue Ratios, Processing Fee Analysis.
+
+---
      
 ### Metadata
  * Dataset Attributes:
@@ -91,6 +95,8 @@ This dynamic and interactive dashboard centralizes data across regions, payment 
    1. Total Records: 2,987 transactions.
    2. Regions Covered: Asia, Africa, Europe, North America, South America.
    3. Payment Methods: Credit Card, Debit Card, PayPal, ACH Transfer.
+
+---
 
 ### **Use Case: Fraud Detection and Mitigation**
 
@@ -175,6 +181,8 @@ ORDER BY TotalRevenue DESC;
 - Increase PayPal adoption in underperforming regions to leverage its profitability.
 - Allocate marketing resources to South America and Africa to tap into growth opportunities.
 
+---
+
 ### **Key Features of the Dashboard**
 ![WhatsApp Image 2025-01-18 at 09 10 40](https://github.com/user-attachments/assets/19f65fdb-bfb9-4544-9edc-e7949f3d7ffa)
 
@@ -205,6 +213,8 @@ The **Advanced Payment Transactions Dashboard**, created using Power BI, provide
 - **Interactive Maps**:
   - Visualize revenue, profit, and fraud rates by region.
   - Identify high-performing regions like North America and Europe for strategic focus.
+
+---
 
 ### **Strategic Recommendations**
 
